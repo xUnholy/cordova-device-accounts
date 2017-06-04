@@ -7,7 +7,7 @@ Requires the **android.permission.GET_ACCOUNTS** permission.
 ## Install
 
 ```
-cordova plugin add https://github.com/loicknuchel/cordova-device-accounts.git
+cordova plugin add https://github.com/danielsogl/cordova-device-accounts.git
 ```
 
 ## Methods

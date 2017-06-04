@@ -1,0 +1,29 @@
+{
+  "name": "cordova-device-accounts",
+  "version": "1.0.0",
+  "description": "Cordova Device Accounts Plugin",
+  "cordova": {
+    "id": "com.danielsogl.cordova.deviceaccounts",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielsogl/cordova-device-accounts.git"
+  },
+  "keywords": [
+    "cordova",
+    "device",
+    "account",
+    "email",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Daniel Sogl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielsogl/cordova-device-accounts/issues"
+  },
+  "homepage": "https://github.com/danielsogl/cordova-device-accounts#readme"
+}
