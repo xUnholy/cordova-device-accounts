@@ -2,12 +2,16 @@
 
 Cordova plugin to get the device accounts on Android
 
+Note: This repository was created to implement the new method of getting accounts visibile to device as of Android 8.0.0.
+
+Read more about it here: https://developer.android.com/about/versions/oreo/android-8.0-changes
+
 Requires the **android.permission.GET_ACCOUNTS** permission.
 
 ## Install
 
 ```
-cordova plugin add https://github.com/danielsogl/cordova-device-accounts.git
+cordova plugin add https://github.com/xunholy/cordova-device-accounts.git
 ```
 
 ## Methods

@@ -6,6 +6,9 @@ DeviceAccounts.get = function(onSuccess, onFail){
 DeviceAccounts.getByType = function(type, onSuccess, onFail){
   cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getDeviceAccountsByType', [type]);
 };
+DeviceAccounts.getPermissions = function(type, onSuccess, onFail){
+  cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getPermissions', [type]);
+};
 DeviceAccounts.getEmails = function(onSuccess, onFail){
   DeviceAccounts.getByType('com.google', function(accounts){
     var emails = [];

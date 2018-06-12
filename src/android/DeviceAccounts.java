@@ -1,4 +1,4 @@
-package com.danielsogl.cordova.deviceaccounts;
+package com.xunholy.cordova.deviceaccounts;
 
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.accounts.AccountManager;
 import android.accounts.Account;
 import java.util.List;
@@ -50,6 +51,9 @@ public class DeviceAccounts extends CordovaPlugin {
       JSONArray result = formatResult(accounts);
       callbackContext.success(result);
       return true;
+    } else if("getPermissions".equals(action)){
+      getPermissions();
+      return true;
     } else {
       callbackContext.error("DeviceAccounts." + action + " is not a supported function. Avaiable functions are getDeviceAccounts() and getDeviceAccountsByType(String type) !");
       return false;
@@ -69,6 +73,14 @@ public class DeviceAccounts extends CordovaPlugin {
       }
     }
     return ret;
+  }
+
+  static final int VISIBILITY_USER_MANAGED_NOT_VISIBLE = 4;
+
+  private void getPermissions() {
+    AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
+    Intent accountIntent = manager.newChooseAccountIntent(null, null, new String[]{"com.google"}, null, null, null, null);
+    cordova.getActivity().startActivityForResult(accountIntent, VISIBILITY_USER_MANAGED_NOT_VISIBLE);
   }
 
   private JSONArray formatResult(List<Account> accounts) throws JSONException {
