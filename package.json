@@ -20,7 +20,7 @@
     "ecosystem:cordova",
     "cordova-android"
   ],
-  "author": "Michael Fornaro",
+  "author": "Daniel Sogl",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/danielsogl/cordova-device-accounts/issues"
