@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Cordova Device Accounts Plugin",
   "cordova": {
-    "id": "com.xunholy.cordova.deviceaccounts",
+    "id": "com.danielsogl.cordova.deviceaccounts",
     "platforms": [
       "android"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xunholy/cordova-device-accounts.git"
+    "url": "git+https://github.com/danielsogl/cordova-device-accounts.git"
   },
   "keywords": [
     "cordova",
@@ -23,7 +23,7 @@
   "author": "Michael Fornaro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xunholy/cordova-device-accounts/issues"
+    "url": "https://github.com/danielsogl/cordova-device-accounts/issues"
   },
-  "homepage": "https://github.com/xunholy/cordova-device-accounts#readme"
+  "homepage": "https://github.com/danielsogl/cordova-device-accounts#readme"
 }
