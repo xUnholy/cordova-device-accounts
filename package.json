@@ -1,29 +1,32 @@
-{
-  "name": "cordova-device-accounts",
-  "version": "1.0.0",
-  "description": "Cordova Device Accounts Plugin",
-  "cordova": {
-    "id": "com.danielsogl.cordova.deviceaccounts",
-    "platforms": [
-      "android"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danielsogl/cordova-device-accounts.git"
-  },
-  "keywords": [
-    "cordova",
-    "device",
-    "account",
-    "email",
-    "ecosystem:cordova",
-    "cordova-android"
-  ],
-  "author": "Daniel Sogl",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/danielsogl/cordova-device-accounts/issues"
-  },
-  "homepage": "https://github.com/danielsogl/cordova-device-accounts#readme"
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.danielsogl.cordova.deviceaccounts"
+        version="1.0.0">
+    <name>Device Accounts</name>
+    <description>Cordova Device Accounts Plugin</description>
+    <license>MIT</license>
+    <keywords>cordova,device,account,email</keywords>
+    <repo>https://github.com/danielsogl/cordova-device-accounts.git</repo>
+    <issue>https://github.com/danielsogl/cordova-device-accounts/issues</issue>
+
+    <js-module src="www/DeviceAccounts.js" name="DeviceAccounts">
+        <clobbers target="plugins.DeviceAccounts" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="DeviceAccounts" >
+                <param name="android-package" value="com.danielsogl.cordova.deviceaccounts.DeviceAccounts"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/DeviceAccounts.java" target-dir="src/com/danielsogl/cordova/deviceaccounts" />
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+        </config-file>
+    </platform>
+</plugin>
