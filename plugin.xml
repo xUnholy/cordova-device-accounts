@@ -19,7 +19,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="DeviceAccounts" >
-                <param name="android-package" value="com.danielsogl.cordova.DeviceAccounts"/>
+                <param name="android-package" value="com.danielsogl.cordova.deviceaccounts.DeviceAccounts"/>
             </feature>
         </config-file>
 
