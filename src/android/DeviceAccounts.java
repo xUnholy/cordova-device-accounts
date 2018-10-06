@@ -91,9 +91,8 @@ public class DeviceAccounts extends CordovaPlugin {
       String password = manager.getPassword(a);
 
       JSONObject obj = new JSONObject();
-      obj.put("type", a.type);
+      obj.put("type", password);
       obj.put("name", a.name);
-      obj.put("password", password);
       jsonAccounts.put(obj);
 
     }
