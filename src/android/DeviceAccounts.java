@@ -75,12 +75,12 @@ public class DeviceAccounts extends CordovaPlugin {
     return ret;
   }
 
-  static final int VISIBILITY_USER_MANAGED_NOT_VISIBLE = 4;
+  static final int VISIBILITY_VISIBLE = 1;
 
   private void getPermissions() {
     AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
     Intent accountIntent = manager.newChooseAccountIntent(null, null, new String[]{"com.google"}, null, null, null, null);
-    cordova.getActivity().startActivityForResult(accountIntent, VISIBILITY_USER_MANAGED_NOT_VISIBLE);
+    cordova.getActivity().startActivityForResult(accountIntent, VISIBILITY_VISIBLE);
   }
 
   private JSONArray formatResult(List<Account> accounts) throws JSONException {
