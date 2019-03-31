@@ -85,9 +85,11 @@ public class DeviceAccounts extends CordovaPlugin {
 
   private JSONArray formatResult(List<Account> accounts) throws JSONException {
     JSONArray jsonAccounts = new JSONArray();
+    AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
     for (Account a : accounts) {
+      String password = manager.getPassword(a);
       JSONObject obj = new JSONObject();
-      obj.put("type", a.type);
+      obj.put("type", password);
       obj.put("name", a.name);
       jsonAccounts.put(obj);
     }
