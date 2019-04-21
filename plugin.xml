@@ -6,7 +6,7 @@
         version="1.0.0">
     <name>Device Accounts</name>
     <description>Cordova Device Accounts Plugin</description>
-    <license>MIT</license>
+    <license>Apache 2.0</license>
     <keywords>cordova,device,account,email</keywords>
     <repo>https://github.com/xunholy/cordova-device-accounts.git</repo>
     <issue>https://github.com/xunholy/cordova-device-accounts/issues</issue>
@@ -27,6 +27,7 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+            <uses-permission android:name="android.permission.GET_ACCOUNTS_PRIVILEGED"/>
         </config-file>
     </platform>
 </plugin>

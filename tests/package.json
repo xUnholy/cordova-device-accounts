@@ -1,0 +1,14 @@
+{
+    "name": "cordova-device-accounts-tests",
+    "version": "1.0.0",
+    "description": "",
+    "cordova": {
+      "id": "cordova-device-accounts-tests",
+      "platforms": []
+    },
+    "keywords": [
+      "ecosystem:cordova"
+    ],
+    "author": "Michael Fornaro",
+    "license": "Apache 2.0"
+  }
