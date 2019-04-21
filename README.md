@@ -23,12 +23,12 @@ constructor(private androidPermissions: AndroidPermissions) { }
 ...
 
 return this.androidPermissions.requestPermissions(
-      [
-        this.androidPermissions.PERMISSION.GET_ACCOUNTS,
-        this.androidPermissions.PERMISSION.GET_ACCOUNTS_PRIVILEGED
-      ])
-      .then(permission => console.log('Permissions Granted: ' + JSON.stringify(permission)))
-      .catch(error => console.error(error));
+  [
+    this.androidPermissions.PERMISSION.GET_ACCOUNTS,
+    this.androidPermissions.PERMISSION.GET_ACCOUNTS_PRIVILEGED
+  ])
+  .then(permission => console.log('Permissions Granted: ' + JSON.stringify(permission)))
+  .catch(error => console.error(error));
 ```
 
 ## Methods
