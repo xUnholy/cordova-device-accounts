@@ -1,29 +1,15 @@
 sudo: false
-
 addons:
   sauce_connect:
     username: xUnholy
-    access_key: 8578f82a-b12f-4a2e-84c3-9dbaf8a24c83
-
+  jwt:
+    secure: C6vGT2ygvd9re1iDDEvuAR9QhAaClI/8e8D6fUec3soAFpBvuVoQf2HMoqMgSPgXLguDIRH9BTZdGcjnqiL4xy2l2upZHuGuDD3THYVE8YaACfGs7+dm8x7zjUXzzLSG+yVM05jLdp9vhHOD/F73ubFD7Lfsb8gu+mcsEfMh1sNwS8FRdx10lq4lmQi7F+BQ8iDKy92Zs2Y/hkfvakXTKhUniq233xUHLTEyn5IR71riB2B3+TWkFVYVUCUGhDaNPYq17ZOIQxmVmyivsTbRKej7oaO7RWk3mMZLA+xV/5jjoFQWDD+O4QYGL3k0xDaSSDpXIFh6y60yyhqsUSe589b8XKOf8dLIlBtdJCb3rDYwhxtTIUVHY86pSMrfHT0tb/D+Rf/ItBayS/D4FsD/J5Hzd1QIvmYLxQAShXfnfwQvVvJslPMKgA2yGL65FmMM7YeBe42ahIFRLKMsdBLpGaSytdKANaWAlOGzPN3R7RJxOF8VV9kwHcczwyBJDjWWApfGU0nn0D0bptegI8IdQtUbI9+R2a4X0Uq3S2DaqU/DX8fMOzhAH1/9a7skRkc2bQ1auKUEfXgJOsGKMlVA7xexbAllKsy5XqwntVBBrak486txFWsfPjA109ptG/BdeHfB6LmbOxGkX9/g9BJqkzS8wAZg7iWG3N7eAAhIpuQ=
 env:
   global:
   - TRAVIS_NODE_VERSION="8"
-
 matrix:
   include:
   - env: PLATFORM=browser-chrome
-    os: linux
-    language: node_js
-    node_js: '8'
-  - env: PLATFORM=browser-firefox
-    os: linux
-    language: node_js
-    node_js: '8'
-  - env: PLATFORM=browser-safari
-    os: linux
-    language: node_js
-    node_js: '8'
-  - env: PLATFORM=browser-edge
     os: linux
     language: node_js
     node_js: '8'
@@ -59,7 +45,6 @@ matrix:
       components:
       - tools
       - build-tools-26.0.2
-
 before_install:
 - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm
   && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm
@@ -72,11 +57,7 @@ before_install:
 - git clone https://github.com/apache/cordova-paramedic /tmp/paramedic && pushd /tmp/paramedic
   && npm install && popd
 - npm install -g cordova
-
 install:
 - npm install
-
 script:
-- npm test
-- node /tmp/paramedic/main.js --config pr/$PLATFORM --plugin $(pwd) --shouldUseSauce
-  --buildName travis-plugin-device-$TRAVIS_JOB_NUMBER
+- npm run eslint

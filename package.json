@@ -13,7 +13,8 @@
     "url": "git+https://github.com/xunholy/cordova-device-accounts.git"
   },
   "scripts": {
-    "test": "npm run eslint",
+    "prep-test": "git clone https://github.com/apache/cordova-paramedic /tmp/paramedic && pushd /tmp/paramedic && npm install && popd",
+    "test": "node /tmp/paramedic/main.js --config pr/$PLATFORM --plugin $(pwd) --shouldUseSauce --buildName travis-plugin-device-$TRAVIS_JOB_NUMBER",
     "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests"
   },
   "keywords": [
