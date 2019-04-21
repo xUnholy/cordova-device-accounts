@@ -4,6 +4,5 @@ exports.defineAutoTests = function () {
         it('should exist', function () {
             expect(window.deviceaccounts).toBeDefined();
         });
-
     });
 };
