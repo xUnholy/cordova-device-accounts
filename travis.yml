@@ -1,11 +1,10 @@
 sudo: false
-addons:
-  jwt:
-    secure: egTo2EERSKVWdBoP+6ewd/JIyyly2XTT1xOVj27v2L148c453uRNPjXwiGRYu7vTw5rkGK+H54n4FG3rUOuEVNX9NDNC5TlkhTfmecXNzjyOIuV7xD0qg5s6Q3IXg8kAp9+JXWbVVR6hoPzmAAnTT4rcoh6cPg4Tf327W2sRGkw=
+
 env:
   global:
   - SAUCE_USERNAME=snay
   - TRAVIS_NODE_VERSION="4.2"
+
 matrix:
   include:
   - env: PLATFORM=browser-chrome
@@ -66,6 +65,7 @@ matrix:
       components:
       - tools
       - build-tools-26.0.2
+
 before_install:
 - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm
   && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm
@@ -78,8 +78,10 @@ before_install:
 - git clone https://github.com/apache/cordova-paramedic /tmp/paramedic && pushd /tmp/paramedic
   && npm install && popd
 - npm install -g cordova
+
 install:
 - npm install
+
 script:
 - npm test
 - node /tmp/paramedic/main.js --config pr/$PLATFORM --plugin $(pwd) --shouldUseSauce
