@@ -1,5 +1,7 @@
 sudo: false
-
+addons:
+  jwt:
+    secure: egTo2EERSKVWdBoP+6ewd/JIyyly2XTT1xOVj27v2L148c453uRNPjXwiGRYu7vTw5rkGK+H54n4FG3rUOuEVNX9NDNC5TlkhTfmecXNzjyOIuV7xD0qg5s6Q3IXg8kAp9+JXWbVVR6hoPzmAAnTT4rcoh6cPg4Tf327W2sRGkw=
 env:
   global:
   - SAUCE_USERNAME=snay
@@ -21,16 +23,6 @@ matrix:
     node_js: '8'
   - env: PLATFORM=browser-edge
     os: linux
-    language: node_js
-    node_js: '8'
-  - env: PLATFORM=ios-9.3
-    os: osx
-    osx_image: xcode7.3
-    language: node_js
-    node_js: '8'
-  - env: PLATFORM=ios-10.0
-    os: osx
-    osx_image: xcode7.3
     language: node_js
     node_js: '8'
   - env: PLATFORM=android-4.4
