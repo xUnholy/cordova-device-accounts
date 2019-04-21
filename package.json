@@ -12,6 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/xunholy/cordova-device-accounts.git"
   },
+  "scripts": {
+    "test": "npm run eslint",
+    "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests"
+  },
   "keywords": [
     "cordova",
     "device",
@@ -21,9 +25,18 @@
     "cordova-android"
   ],
   "author": "Michael Fornaro",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/xunholy/cordova-device-accounts/issues"
   },
-  "homepage": "https://github.com/xunholy/cordova-device-accounts#readme"
+  "homepage": "https://github.com/xunholy/cordova-device-accounts#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
 }
