@@ -2,41 +2,62 @@
 
 Cordova plugin to get the device accounts on Android
 
-Note: This repository was created to implement the new method of getting accounts visibile to device as of Android 8.0.0.
-
-Read more about it here: https://developer.android.com/about/versions/oreo/android-8.0-changes
-
-Requires the **android.permission.GET_ACCOUNTS** permission.
-
 ## Install
 
+```bash
+ionic cordova plugin add https://github.com/xunholy/cordova-device-accounts.git --save
 ```
-cordova plugin add https://github.com/xunholy/cordova-device-accounts.git
+
+## Required Permissions
+
+Requires the following permissions:
+
+* **android.permission.GET_ACCOUNTS**
+* **android.permission.GET_ACCOUNTS_PRIVILEGED**
+
+```typescript
+import { AndroidPermissions } from '@ionic-native/android-permissions';
+
+constructor(private androidPermissions: AndroidPermissions) { }
+
+...
+
+return this.androidPermissions.requestPermissions(
+      [
+        this.androidPermissions.PERMISSION.GET_ACCOUNTS,
+        this.androidPermissions.PERMISSION.GET_ACCOUNTS_PRIVILEGED
+      ])
+      .then(permission => console.log('Permissions Granted: ' + JSON.stringify(permission)))
+      .catch(error => console.error(error));
 ```
 
 ## Methods
 
-- `plugins.DeviceAccounts.get(onSuccess, onFail)` : get all accounts registred on device
-- `plugins.DeviceAccounts.getByType(type, onSuccess, onFail)` : get all accounts registred on device for requested type
-- `plugins.DeviceAccounts.getEmails(onSuccess, onFail)` : get all emails registred on device (accounts with 'com.google' type)
-- `plugins.DeviceAccounts.getEmail(onSuccess, onFail)` : get the first email registred on device or undefined
+- `DeviceAccounts.get(onSuccess, onFail)` : get all accounts registered on device
+- `DeviceAccounts.getByType(type, onSuccess, onFail)` : get all accounts registered on device for requested type
+- `DeviceAccounts.getEmails(onSuccess, onFail)` : get all emails registered on device (accounts with 'com.google' type)
+- `DeviceAccounts.getEmail(onSuccess, onFail)` : get the first email registered on device or undefined
+- `DeviceAccounts.getPermissions(onSuccess, onFail)` : get all emails and request permissions from user.
+
+Note: since Android 8.0.0+ device accounts are not visible to the application. Users must grant access to email accounts they wish to be visible to the application.
 
 ## Example
 
-```javascript
-window.plugins.DeviceAccounts.get(function(accounts){
-  // accounts is an array with objects containing name and type attributes
-  console.log('account registered on this device:', accounts);
-}, function(error){
-  console.log('Fail to retrieve accounts, details on exception:', error);
-});
+```typescript
+import { DeviceAccounts } from '@ionic-native/device-accounts';
+
+constructor(private deviceAccounts: DeviceAccounts) { }
+
+...
+
+this.deviceAccounts.get()
+  .then(accounts => console.log(accounts))
+  .catch(error => console.error(error));
 ```
 
 ## Compatibility
 
-Tested with:
+The following versions are compatible with this plugin:
 
-* Cordova 3.3
-* Android 4.4
-
-Should work with Android API level 5+ and Android >2.2, but not tested.
+* Cordova 3.3 +
+* Android 4.4 +
