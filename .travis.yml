@@ -3,10 +3,12 @@ addons:
   sauce_connect:
     username: xUnholy
   jwt:
-    secure: C6vGT2ygvd9re1iDDEvuAR9QhAaClI/8e8D6fUec3soAFpBvuVoQf2HMoqMgSPgXLguDIRH9BTZdGcjnqiL4xy2l2upZHuGuDD3THYVE8YaACfGs7+dm8x7zjUXzzLSG+yVM05jLdp9vhHOD/F73ubFD7Lfsb8gu+mcsEfMh1sNwS8FRdx10lq4lmQi7F+BQ8iDKy92Zs2Y/hkfvakXTKhUniq233xUHLTEyn5IR71riB2B3+TWkFVYVUCUGhDaNPYq17ZOIQxmVmyivsTbRKej7oaO7RWk3mMZLA+xV/5jjoFQWDD+O4QYGL3k0xDaSSDpXIFh6y60yyhqsUSe589b8XKOf8dLIlBtdJCb3rDYwhxtTIUVHY86pSMrfHT0tb/D+Rf/ItBayS/D4FsD/J5Hzd1QIvmYLxQAShXfnfwQvVvJslPMKgA2yGL65FmMM7YeBe42ahIFRLKMsdBLpGaSytdKANaWAlOGzPN3R7RJxOF8VV9kwHcczwyBJDjWWApfGU0nn0D0bptegI8IdQtUbI9+R2a4X0Uq3S2DaqU/DX8fMOzhAH1/9a7skRkc2bQ1auKUEfXgJOsGKMlVA7xexbAllKsy5XqwntVBBrak486txFWsfPjA109ptG/BdeHfB6LmbOxGkX9/g9BJqkzS8wAZg7iWG3N7eAAhIpuQ=
+    
 env:
   global:
+  - SAUCE_USERNAME=xUnholy
   - TRAVIS_NODE_VERSION="8"
+  - secure: C6vGT2ygvd9re1iDDEvuAR9QhAaClI/8e8D6fUec3soAFpBvuVoQf2HMoqMgSPgXLguDIRH9BTZdGcjnqiL4xy2l2upZHuGuDD3THYVE8YaACfGs7+dm8x7zjUXzzLSG+yVM05jLdp9vhHOD/F73ubFD7Lfsb8gu+mcsEfMh1sNwS8FRdx10lq4lmQi7F+BQ8iDKy92Zs2Y/hkfvakXTKhUniq233xUHLTEyn5IR71riB2B3+TWkFVYVUCUGhDaNPYq17ZOIQxmVmyivsTbRKej7oaO7RWk3mMZLA+xV/5jjoFQWDD+O4QYGL3k0xDaSSDpXIFh6y60yyhqsUSe589b8XKOf8dLIlBtdJCb3rDYwhxtTIUVHY86pSMrfHT0tb/D+Rf/ItBayS/D4FsD/J5Hzd1QIvmYLxQAShXfnfwQvVvJslPMKgA2yGL65FmMM7YeBe42ahIFRLKMsdBLpGaSytdKANaWAlOGzPN3R7RJxOF8VV9kwHcczwyBJDjWWApfGU0nn0D0bptegI8IdQtUbI9+R2a4X0Uq3S2DaqU/DX8fMOzhAH1/9a7skRkc2bQ1auKUEfXgJOsGKMlVA7xexbAllKsy5XqwntVBBrak486txFWsfPjA109ptG/BdeHfB6LmbOxGkX9/g9BJqkzS8wAZg7iWG3N7eAAhIpuQ=
 matrix:
   include:
   - env: PLATFORM=android-4.4
@@ -48,7 +50,7 @@ before_install:
 - node --version
 - if [[ "$PLATFORM" =~ android ]]; then gradle --version; fi
 - if [[ "$PLATFORM" =~ ios ]]; then npm install -g ios-deploy; fi
-- if [[ "$PLATFORM" =~ android ]]; then echo y | android update sdk -u --filter android-22,android-23,android-24,android-25,android-26,android-27;
+- if [[ "$PLATFORM" =~ android ]]; then echo y | android update sdk -u --filter android-22,android-23,android-24,android-25,android-26,android-27,android-28;
   fi
 - git clone https://github.com/apache/cordova-paramedic /tmp/paramedic && pushd /tmp/paramedic
   && npm install && popd
