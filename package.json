@@ -13,7 +13,6 @@
     "url": "git+https://github.com/xunholy/cordova-device-accounts.git"
   },
   "scripts": {
-    "test": "npm run eslint",
     "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests"
   },
   "keywords": [
