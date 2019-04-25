@@ -1,6 +1,6 @@
 {
   "name": "cordova-device-accounts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cordova Device Accounts Plugin",
   "cordova": {
     "id": "com.xunholy.cordova.deviceaccounts",
