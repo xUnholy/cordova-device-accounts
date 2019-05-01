@@ -30,4 +30,4 @@ DeviceAccounts.getEmail = function (onSuccess, onFail) {
     }, onFail);
 };
 
-module.exports = DeviceAccounts;
+module.exports = new DeviceAccounts();

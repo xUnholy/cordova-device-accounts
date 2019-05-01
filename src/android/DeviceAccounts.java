@@ -20,25 +20,33 @@ import java.util.ArrayList;
  * http://developer.android.com/reference/android/accounts/Account.html
  */
 public class DeviceAccounts extends CordovaPlugin {
-  /**
-     * Sets the context of the Command. This can then be used to do things like
-     * get file paths associated with the Activity.
-     *
-     * @param cordova The context of the main Activity.
-     * @param webView The CordovaWebView Cordova is running in.
+  public static final int VISIBILITY_VISIBLE = 1;
+
+    /**
+     * Constructor.
      */
+    public DeviceAccounts() {
+    }
+
+  /**
+   * Sets the context of the Command. This can then be used to do things like
+   * get file paths associated with the Activity.
+   *
+   * @param cordova The context of the main Activity.
+   * @param webView The CordovaWebView Cordova is running in.
+   */
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
   }
 
   /**
-     * Executes the request and returns PluginResult.
-     *
-     * @param action            The action to execute.
-     * @param args              JSONArry of arguments for the plugin.
-     * @param callbackContext   The callback id used when calling back into JavaScript.
-     * @return                  True if the action was valid, false if not.
-     */
+   * Executes the request and returns PluginResult.
+   *
+   * @param action            The action to execute.
+   * @param args              JSONArray of arguments for the plugin.
+   * @param callbackContext   The callback id used when calling back into JavaScript.
+   * @return                  True if the action was valid, false if not.
+   */
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     if("getDeviceAccounts".equals(action)){
       List<Account> accounts = getAccounts(null);
@@ -55,44 +63,38 @@ public class DeviceAccounts extends CordovaPlugin {
       getPermissions();
       return true;
     } else {
-      callbackContext.error("DeviceAccounts." + action + " is not a supported function. Avaiable functions are getDeviceAccounts() and getDeviceAccountsByType(String type) !");
+      callbackContext.error("DeviceAccounts." + action + " is not a supported function.");
       return false;
     }
   }
 
-  //--------------------------------------------------------------------------
-  // LOCAL METHODS
-  //--------------------------------------------------------------------------
   private List<Account> getAccounts(String type) {
     AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
     Account[] accounts = manager.getAccounts();
-    List<Account> ret = new ArrayList<Account>();
+    List<Account> Accounts = new ArrayList<Account>();
     for(Account account : accounts){
       if(type == null || account.type.equals(type)){
-        ret.add(account);
+        Accounts.add(account);
       }
     }
-    return ret;
+    return Accounts;
   }
 
-  static final int VISIBILITY_VISIBLE = 1;
+  private JSONArray formatResult(List<Account> accounts) throws JSONException {
+    JSONArray Accounts = new JSONArray();
+    AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
+    for (Account a : accounts) {
+      JSONObject Account = new JSONObject();
+      Account.put("type", a.type);
+      Account.put("name", a.name);
+      Accounts.put(obj);
+    }
+    return Accounts;
+  }
 
   private void getPermissions() {
     AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
     Intent accountIntent = manager.newChooseAccountIntent(null, null, new String[]{"com.google"}, null, null, null, null);
     cordova.getActivity().startActivityForResult(accountIntent, VISIBILITY_VISIBLE);
-  }
-
-  private JSONArray formatResult(List<Account> accounts) throws JSONException {
-    JSONArray jsonAccounts = new JSONArray();
-    AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
-    for (Account a : accounts) {
-      String password = manager.getPassword(a);
-      JSONObject obj = new JSONObject();
-      obj.put("type", password);
-      obj.put("name", a.name);
-      jsonAccounts.put(obj);
-    }
-    return jsonAccounts;
   }
 }
