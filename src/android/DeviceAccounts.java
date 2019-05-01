@@ -87,7 +87,7 @@ public class DeviceAccounts extends CordovaPlugin {
       JSONObject Account = new JSONObject();
       Account.put("type", a.type);
       Account.put("name", a.name);
-      Accounts.put(obj);
+      Accounts.put(Account);
     }
     return Accounts;
   }

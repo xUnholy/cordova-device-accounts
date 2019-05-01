@@ -3,7 +3,7 @@
         xmlns:rim="http://www.blackberry.com/ns/widgets"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.xunholy.cordova.deviceaccounts"
-        version="1.1.0">
+        version="2.0.3">
     <name>Device Accounts</name>
     <description>Cordova Device Accounts Plugin</description>
     <license>Apache 2.0</license>
