@@ -1,6 +1,6 @@
 {
   "name": "cordova-device-accounts-v2",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Cordova Device Accounts Plugin",
   "cordova": {
     "id": "cordova-device-accounts-v2",
