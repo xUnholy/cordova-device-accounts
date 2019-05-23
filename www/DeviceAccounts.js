@@ -11,7 +11,7 @@ DeviceAccounts.prototype.getByType = function (type, onSuccess, onFail) {
 DeviceAccounts.prototype.getPermissions = function (type,onSuccess, onFail) {
     let accountType = 'com.google';
     if (typeof type === 'string') {
-        accountType =  type;
+        accountType = type;
     }
     cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getPermissions',[accountType]);
 };
