@@ -8,8 +8,8 @@ DeviceAccounts.prototype.get = function (onSuccess, onFail) {
 DeviceAccounts.prototype.getByType = function (type, onSuccess, onFail) {
     cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getDeviceAccountsByType', [type]);
 };
-DeviceAccounts.prototype.getPermissions = function (type, onSuccess, onFail) {
-    cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getPermissions', [type]);
+DeviceAccounts.prototype.getPermissions = function (onSuccess, onFail) {
+    cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getPermissions');
 };
 DeviceAccounts.prototype.getEmails = function (onSuccess, onFail) {
     DeviceAccounts.getByType('com.google', function (accounts) {
