@@ -1,8 +1,8 @@
+# Cordova Device Accounts v2 Plugin
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/f0701d13b1b6f8e690f0/maintainability)](https://codeclimate.com/github/xUnholy/cordova-device-accounts/maintainability)
 [![Known Vulnerabilities](https://snyk.io/test/github/xUnholy/cordova-device-accounts/badge.svg)](https://snyk.io/test/github/xUnholy/cordova-device-accounts)
 [![License](https://img.shields.io/badge/license-GPL_v3.0-blue.svg)](https://github.com/xUnholy/cordova-device-accounts/blob/master/LICENSE.md)
-
-# Cordova Device Accounts v2 Plugin
 
 Cordova plugin to get the device accounts on Android.
 
@@ -48,11 +48,11 @@ return this.androidPermissions.requestPermissions(
 
 ## Methods
 
-- `DeviceAccounts.get(onSuccess, onFail)` : get all accounts registered on device
-- `DeviceAccounts.getByType(type, onSuccess, onFail)` : get all accounts registered on device for requested type
-- `DeviceAccounts.getEmails(onSuccess, onFail)` : get all emails registered on device (accounts with 'com.google' type)
-- `DeviceAccounts.getEmail(onSuccess, onFail)` : get the first email registered on device or undefined
-- `DeviceAccounts.getPermissions(onSuccess, onFail)` : get all emails and request permissions from user.
+* `DeviceAccounts.get(onSuccess, onFail)` : get all accounts registered on device
+* `DeviceAccounts.getByType(type, onSuccess, onFail)` : get all accounts registered on device for requested type
+* `DeviceAccounts.getEmails(onSuccess, onFail)` : get all emails registered on device (accounts with 'com.google' type)
+* `DeviceAccounts.getEmail(onSuccess, onFail)` : get the first email registered on device or undefined
+* `DeviceAccounts.getPermissions(onSuccess, onFail)` : get all emails and request permissions from user.
 
 Note: since Android 8.0.0+ device accounts are not visible to the application. Users must grant access to email accounts they wish to be visible to the application.
 
@@ -69,6 +69,8 @@ this.deviceAccounts.get()
   .then(accounts => console.log(accounts))
   .catch(error => console.error(error));
 ```
+
+A demo Ionic application can be viewed to see a working implementation of this plugin [Here](https://github.com/xUnholy/cordova-device-accounts-demo).
 
 ## Compatibility
 

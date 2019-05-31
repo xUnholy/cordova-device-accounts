@@ -3,13 +3,13 @@
         xmlns:rim="http://www.blackberry.com/ns/widgets"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-device-accounts-v2"
-        version="2.0.6">
+        version="2.0.7">
     <name>Device Accounts</name>
     <description>Cordova Device Accounts Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,device,account,email</keywords>
-    <repo>https://github.com/xunholy/cordova-device-accounts.git</repo>
-    <issue>https://github.com/xunholy/cordova-device-accounts/issues</issue>
+    <repo>https://github.com/xunholy/cordova-device-accounts-v2.git</repo>
+    <issue>https://github.com/xunholy/cordova-device-accounts-v2/issues</issue>
 
     <js-module src="www/DeviceAccounts.js" name="DeviceAccounts">
         <clobbers target="DeviceAccounts" />
