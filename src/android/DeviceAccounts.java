@@ -64,7 +64,7 @@ public class DeviceAccounts extends CordovaPlugin {
       this.callbackContext.success(result);
       return true;
     } else if("getPermissions".equals(action)){
-        final String accountType = args.getString(0);
+      final String accountType = args.getString(0);
       getPermissions(accountType);
       return true;
     } else {
