@@ -4,12 +4,23 @@
 
 # cordova-device-accounts
 
-Cordova plugin to get the device accounts on Android
+Cordova plugin to get the device accounts on Android.
 
 ## Install
 
+If you're using Ionic you can use the following commands:
+
 ```bash
-ionic cordova plugin add https://github.com/xunholy/cordova-device-accounts.git --save
+ionic cordova plugin add cordova-device-accounts-v2 --save
+npm install @ionic-native/device-accounts
+```
+
+Note: This is the official maintained repository for the "Device Account" plugin, view the Ionic documentation [Here](https://ionicframework.com/docs/native/device-accounts).
+
+Otherwise use the following command:
+
+```bash
+cordova plugin add cordova-device-accounts-v2 --save
 ```
 
 ## Required Permissions
