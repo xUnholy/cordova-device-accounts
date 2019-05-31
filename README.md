@@ -2,7 +2,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/xUnholy/cordova-device-accounts/badge.svg)](https://snyk.io/test/github/xUnholy/cordova-device-accounts)
 [![License](https://img.shields.io/badge/license-GPL_v3.0-blue.svg)](https://github.com/xUnholy/cordova-device-accounts/blob/master/LICENSE.md)
 
-# cordova-device-accounts
+# Cordova Device Accounts Plugin
 
 Cordova plugin to get the device accounts on Android.
 
