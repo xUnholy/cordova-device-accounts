@@ -79,3 +79,9 @@ The following versions are compatible with this plugin:
 
 * Cordova 3.3 +
 * Android 4.4 +
+
+## Donations
+
+This is an open-source project and takes the time and effort of several individuals to maintain. If you like this plugin and use it within your applications, a donation would be greatly appreciated.
+
+[![Paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=2PDW7ZH29RSUU&currency_code=AUD&source=url)
