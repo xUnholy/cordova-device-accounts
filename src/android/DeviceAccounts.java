@@ -21,6 +21,9 @@ import java.util.ArrayList;
  */
 public class DeviceAccounts extends CordovaPlugin {
   public static final int VISIBILITY_VISIBLE = 1;
+  public static final int RESULT_OK = -1;
+  public static final int RESULT_CANCELED = 0;
+  private CallbackContext callbackContext;
 
     /**
      * Constructor.
@@ -48,22 +51,23 @@ public class DeviceAccounts extends CordovaPlugin {
    * @return                  True if the action was valid, false if not.
    */
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    this.callbackContext = callbackContext;
     if("getDeviceAccounts".equals(action)){
       List<Account> accounts = getAccounts(null);
       JSONArray result = formatResult(accounts);
-      callbackContext.success(result);
+      this.callbackContext.success(result);
       return true;
     } else if("getDeviceAccountsByType".equals(action)){
       final String type = args.getString(0);
       List<Account> accounts = getAccounts(type);
       JSONArray result = formatResult(accounts);
-      callbackContext.success(result);
+      this.callbackContext.success(result);
       return true;
     } else if("getPermissions".equals(action)){
       getPermissions();
       return true;
     } else {
-      callbackContext.error("DeviceAccounts." + action + " is not a supported function.");
+      this.callbackContext.error("DeviceAccounts." + action + " is not a supported function.");
       return false;
     }
   }
@@ -95,6 +99,17 @@ public class DeviceAccounts extends CordovaPlugin {
   private void getPermissions() {
     AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
     Intent accountIntent = manager.newChooseAccountIntent(null, null, new String[]{"com.google"}, null, null, null, null);
+    cordova.setActivityResultCallback(this);
     cordova.getActivity().startActivityForResult(accountIntent, VISIBILITY_VISIBLE);
   }
+
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    if(requestCode == VISIBILITY_VISIBLE && resultCode == RESULT_OK) {
+      this.callbackContext.success("SUCCESS");
+    } else {
+      this.callbackContext.error("Error Getting Permissions, Code: " + resultCode);
+    }
+  }
+
 }
