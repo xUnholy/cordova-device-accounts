@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xunholy/cordova-device-accounts.git"
+    "url": "git+https://github.com/xunholy/cordova-device-accounts-v2.git"
   },
   "scripts": {
     "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests"
@@ -26,9 +26,9 @@
   "author": "Michael Fornaro",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/xunholy/cordova-device-accounts/issues"
+    "url": "https://github.com/xunholy/cordova-device-accounts-v2/issues"
   },
-  "homepage": "https://github.com/xunholy/cordova-device-accounts#readme",
+  "homepage": "https://github.com/xunholy/cordova-device-accounts-v2#readme",
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-semistandard": "^11.0.0",
