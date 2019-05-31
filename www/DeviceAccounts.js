@@ -1,7 +1,6 @@
 var cordova = require('cordova');
 
-function DeviceAccounts() {
-}
+function DeviceAccounts () {}
 
 DeviceAccounts.prototype.get = function (onSuccess, onFail) {
     cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getDeviceAccounts', []);
