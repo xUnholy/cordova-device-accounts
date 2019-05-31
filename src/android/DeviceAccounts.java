@@ -64,7 +64,8 @@ public class DeviceAccounts extends CordovaPlugin {
       this.callbackContext.success(result);
       return true;
     } else if("getPermissions".equals(action)){
-      getPermissions();
+        final String accountType = args.getString(0);
+      getPermissions(accountType);
       return true;
     } else {
       this.callbackContext.error("DeviceAccounts." + action + " is not a supported function.");
@@ -96,9 +97,9 @@ public class DeviceAccounts extends CordovaPlugin {
     return Accounts;
   }
 
-  private void getPermissions() {
+  private void getPermissions(String accountType) {
     AccountManager manager = AccountManager.get(cordova.getActivity().getApplicationContext());
-    Intent accountIntent = manager.newChooseAccountIntent(null, null, new String[]{"com.google"}, null, null, null, null);
+    Intent accountIntent = manager.newChooseAccountIntent(null, null, new String[]{accountType}, null, null, null, null);
     cordova.setActivityResultCallback(this);
     cordova.getActivity().startActivityForResult(accountIntent, VISIBILITY_VISIBLE);
   }

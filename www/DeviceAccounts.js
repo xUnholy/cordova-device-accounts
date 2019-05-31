@@ -1,6 +1,7 @@
 var cordova = require('cordova');
 
-function DeviceAccounts () {}
+function DeviceAccounts() {
+}
 
 DeviceAccounts.prototype.get = function (onSuccess, onFail) {
     cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getDeviceAccounts', []);
@@ -9,7 +10,10 @@ DeviceAccounts.prototype.getByType = function (type, onSuccess, onFail) {
     cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getDeviceAccountsByType', [type]);
 };
 DeviceAccounts.prototype.getPermissions = function (onSuccess, onFail) {
-    cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getPermissions');
+    cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getPermissions', ['com.google']);
+};
+DeviceAccounts.prototype.getPermissionsByType = function (type, onSuccess, onFail) {
+    return cordova.exec(onSuccess, onFail, 'DeviceAccounts', 'getPermissions', [type]);
 };
 DeviceAccounts.prototype.getEmails = function (onSuccess, onFail) {
     DeviceAccounts.getByType('com.google', function (accounts) {
