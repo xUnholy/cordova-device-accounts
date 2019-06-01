@@ -1,9 +1,9 @@
 # Cordova Device Accounts v2 Plugin
 
-[![Downloads](https://img.shields.io/npm/dt/cordova-device-accounts-v2.svg)](https://img.shields.io/npm/dt/cordova-device-accounts-v2.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f0701d13b1b6f8e690f0/maintainability)](https://codeclimate.com/github/xUnholy/cordova-device-accounts/maintainability)
 [![Known Vulnerabilities](https://snyk.io/test/github/xUnholy/cordova-device-accounts/badge.svg)](https://snyk.io/test/github/xUnholy/cordova-device-accounts)
 [![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=2PDW7ZH29RSUU&currency_code=AUD&source=url)
+[![Downloads](https://img.shields.io/npm/dt/cordova-device-accounts-v2.svg)](https://img.shields.io/npm/dt/cordova-device-accounts-v2.svg)
 [![License](https://img.shields.io/badge/license-GPL_v3.0-blue.svg)](https://github.com/xUnholy/cordova-device-accounts/blob/master/LICENSE.md)
 
 Cordova plugin to get the device accounts on Android.
